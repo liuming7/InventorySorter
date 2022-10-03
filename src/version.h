@@ -6,31 +6,29 @@
 
 #pragma once
 
-#define PLUGIN_VERSION_DEV 0
-#define PLUGIN_VERSION_BETA 1
-#define PLUGIN_VERSION_RELEASE 2
+#define PLUGIN_VERSION_DEV 1
+#define PLUGIN_VERSION_BETA 0
+#define PLUGIN_VERSION_RELEASE 1
 
 // ***************************************************************************************
 
 // Please FILL UP the content here before developing your plugin, and DO NOT modify any code
 // outside this area.
 
-static_assert(false, "Please modify your plugin information below and delete this line!");
-
 // The basic descriptions of your plugin
 // Note that the the plugin name CAN ONLY CONTAIN Enlish alphabet, digit, dash(-) and
 // underscore(_). 
-#define PLUGIN_NAME "HelloWorldPrinter"
+#define PLUGIN_NAME "InventorySorter"
 // Describe what your plugin does
 // We recommend you start the introduction with a third-person singular verb.
-#define PLUGIN_INTRODUCTION "Prints \"Hello, World!\" in the console."
-#define PLUGIN_AUTHOR "Me"
+#define PLUGIN_INTRODUCTION "Automatically sort your every inventory after opening it."
+#define PLUGIN_AUTHOR "liuming7"
 
 // The version of your plugin. If you do not know how to set it, please refer
 // to https://semver.org/ .
-#define PLUGIN_VERSION_MAJOR 0
-#define PLUGIN_VERSION_MINOR 1
-#define PLUGIN_VERSION_REVISION 0
+#define PLUGIN_VERSION_MAJOR 1
+#define PLUGIN_VERSION_MINOR 0
+#define PLUGIN_VERSION_REVISION 1
 #define PLUGIN_VERSION_BUILD 0
 
 // The stage of your plugin, which can be PLUGIN_VERSION_DEV, PLUGIN_VERSION_BETA
@@ -41,7 +39,7 @@ static_assert(false, "Please modify your plugin information below and delete thi
 // please start the latest version of LiteLoaderBDS and get the protocol version.
 // If you are confident about the version compatibility of your plugin, you can
 // just comment this line (NOT RECOMMENDED).
-#define TARGET_BDS_PROTOCOL_VERSION 545
+#define TARGET_BDS_PROTOCOL_VERSION 554
 
 // ***************************************************************************************
 
