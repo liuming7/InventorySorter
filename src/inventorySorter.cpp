@@ -6,7 +6,7 @@
 #include <llapi/LoggerAPI.h>
 #include <llapi/EventAPI.h>
 
-#include <unordered_set>
+//#include <unordered_set>
 
 #include "version.h"
 #include "itemsQueue.h"
@@ -14,14 +14,14 @@
 // We recommend using the global logger.
 extern Logger logger;
 
-std::unordered_set<string> containerNames{
+/*std::unordered_set<string> containerNames{
 	"minecraft:barrel",
 	"minecraft:shulker_box",
 	"minecraft:undyed_shulker_box",
 	"minecraft:trapped_chest",
 	"minecraft:chest",
 	"minecraft:ender_chest"
-};
+};*/
 
 /**
  * @brief The entrypoint of the plugin. DO NOT remove or rename this function.
@@ -47,7 +47,7 @@ void PluginInit()
         ItemsQueue playerItemsQueue(player_container,9);
         playerItemsQueue.sort();
 
-        if (containerNames.find(event.mContainer->getTypeName()) == containerNames.end()){
+        if (event.mContainer==nullptr || event.mContainer->getTypeName()!="CONTAINER"){
             return true;
         }
         Container* block_container = event.mContainer;
