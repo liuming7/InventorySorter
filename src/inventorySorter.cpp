@@ -6,11 +6,22 @@
 #include <llapi/LoggerAPI.h>
 #include <llapi/EventAPI.h>
 
+#include <unordered_set>
+
 #include "version.h"
 #include "itemsQueue.h"
 
 // We recommend using the global logger.
 extern Logger logger;
+
+std::unordered_set<string> containerNames{
+	"minecraft:barrel",
+	"minecraft:shulker_box",
+	"minecraft:undyed_shulker_box",
+	"minecraft:trapped_chest",
+	"minecraft:chest",
+	"minecraft:ender_chest"
+};
 
 /**
  * @brief The entrypoint of the plugin. DO NOT remove or rename this function.
@@ -33,11 +44,15 @@ void PluginInit()
 
     Event::PlayerOpenContainerEvent::subscribe([](const Event::PlayerOpenContainerEvent& event) {
         Container* player_container = &(event.mPlayer->getInventory());
+        ItemsQueue playerItemsQueue(player_container,9);
+        playerItemsQueue.sort();
+
+        if (containerNames.find(event.mContainer->getTypeName()) == containerNames.end()){
+            return true;
+        }
         Container* block_container = event.mContainer;
         ItemsQueue blockItemsQueue(block_container);
         blockItemsQueue.sort();
-        ItemsQueue playerItemsQueue(player_container,9);
-        playerItemsQueue.sort();
         return true;
     });
 
