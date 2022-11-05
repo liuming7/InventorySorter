@@ -43,9 +43,9 @@ void PluginInit()
     logger.info("InventorySorter is made by liuming7, and Powered by LiteLoaderBDS");
 
     Event::PlayerOpenContainerEvent::subscribe([](const Event::PlayerOpenContainerEvent& event) {
-        Container* player_container = &(event.mPlayer->getInventory());
+        /*Container* player_container = &(event.mPlayer->getInventory());
         ItemsQueue playerItemsQueue(player_container,9);
-        playerItemsQueue.sort();
+        playerItemsQueue.sort();*/
 
         if (event.mContainer==nullptr || event.mContainer->getTypeName()!="CONTAINER"){
             return true;
@@ -55,11 +55,11 @@ void PluginInit()
         blockItemsQueue.sort();
         return true;
     });
-
+/*
     Event::PlayerOpenInventoryEvent::subscribe([](const Event::PlayerOpenInventoryEvent& event) {
         Container* player_container = &(event.mPlayer->getInventory());
         ItemsQueue itemsQueue(player_container,9);
         itemsQueue.sort();
         return true;
-    });
+    });*/
 }
