@@ -89,6 +89,7 @@ void PluginInit()
             Container* player_container = &(event.mPlayer->getInventory());
             ItemsQueue itemsQueue(player_container,9);
             itemsQueue.sort();
+            event.mPlayer->sendTextPacket("Inventory has been sorted");
         }
         return true;
     });
